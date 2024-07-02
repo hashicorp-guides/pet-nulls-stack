@@ -4,7 +4,7 @@
 terraform {
   required_providers {
     random = {
-      source = "hashicorp/random"
+      source  = "hashicorp/random"
       version = "3.3.2"
     }
   }
@@ -19,6 +19,23 @@ resource "random_pet" "this" {
   length = 3
 }
 
+resource "random_pet" "always_new" {
+  keepers = {
+    uuid = uuid() # Force a new name each time
+  }
+  length = var.animal_count
+}
+
+resource "random_pet" "tg" {
+  count = 25
+
+  separator = "-"
+  length    = 2
+
+  keepers = {
+    count = count.index
+  }
+}
 output "name" {
   value = random_pet.this.id
 }
