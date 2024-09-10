@@ -1,4 +1,4 @@
-# pet-nulls-stack
+# pet-nulls-stack dummy test
 
 _This is an example stack configuration for the private preview of Terraform Stacks. Language
 constructs and features are subject to change given feedback received during this preview. Do not
